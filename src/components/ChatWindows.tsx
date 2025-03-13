@@ -1,4 +1,13 @@
 import React, { useState } from 'react'
+import { useBluesky } from './contexts/BlueskyContext'
+
+function LoginComponent() {
+  const { login } = useBluesky()
+
+  const handleLogin = async (identifier: string, password: string) => {
+    const success = await login(identifier, password)
+    if (success) {
+      // Handle successful login
 
 interface Message {
   id: string
